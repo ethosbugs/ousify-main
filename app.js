@@ -401,13 +401,39 @@ function renderOfficial(v) {
       <input data-f placeholder="Filtrar…" value="${esc(V.filter)}"><button class="btn" data-a="copylist">Copiar a mis listas</button></div><div class="rows"></div>`;
   paintRows();
 }
+/* Cada lista puede llevar "folder" (carpeta de sus mp3). Entonces una pista puede ser solo { "file": "Título - Artista.mp3" }:
+   el título, el artista y la ruta se deducen del nombre del archivo; álbum y portada se heredan de la lista. */
 function setOfficial(j) {
-  OFF = (j.lists || []).filter(l => l && l.id && l.name).map(l => ({ ...l, tracks: (l.tracks || []).map(t => ({ url: t.url || (t.file ? 'vault:' + t.file : ''), name: t.title || t.name || 'Sin título', artist: t.artist || '', album: t.album || '', year: t.year || '', cover: t.cover || '', from: 'Ousify' })).filter(t => t.url) }));
+  OFF = (j.lists || []).filter(l => l && l.id && l.name).map(l => ({ ...l, tracks: (l.tracks || []).map(t => {
+    const f = t.file && l.folder ? t.file : '', m = f.replace(/\.mp3$/i, '').split(/\s+-\s+/), rest = m.slice(1).join(' - ');
+    const [n, a] = !f ? ['', ''] : m.length < 2 ? [m[0], ''] : S.fname === 'at' ? [rest, m[0]] : [m[0], rest];
+    return { url: t.url || (f ? l.folder.replace(/\/+$/, '') + '/' + f : t.file ? 'vault:' + t.file : ''), name: t.title || t.name || n || 'Sin título', artist: t.artist || a,
+      album: t.album || l.album || l.name, year: t.year || l.year || '', cover: t.cover || l.cover || '', from: 'Ousify' };
+  }).filter(t => t.url) }));
   if (OFF.length) render();
+  return resolveCovers();
+}
+/* Comprueba que cada portada carga. Si la ruta falla, la busca en la misma carpeta y en "imagenes/" (jpg, jpeg, png, webp). */
+const imgOk = u => new Promise(r => { const i = new Image(); i.onload = () => r(true); i.onerror = () => r(false); i.src = absUrl(u); });
+async function resolveCovers() {
+  const urls = [...new Set(OFF.flatMap(o => [o.cover, ...o.tracks.map(t => t.cover)]).filter(u => u && !/^(https?:|data:|blob:)/i.test(u)))];
+  if (!urls.length) return;
+  const map = {}, missing = [];
+  await Promise.all(urls.map(async u => {
+    const file = u.split('/').pop(), stem = file.replace(/\.[^.]+$/, ''), own = u.slice(0, u.length - file.length).replace(/\/$/, '');
+    const cands = [u];
+    for (const d of [...new Set([own, 'imagenes'])]) for (const s of [...new Set([stem, stem.toLowerCase()])]) for (const e of ['jpg', 'jpeg', 'png', 'webp']) cands.push((d ? d + '/' : '') + s + '.' + e);
+    for (const c of [...new Set(cands)]) if (await imgOk(c)) { map[u] = c; return; }
+    map[u] = ''; missing.push(u);
+  }));
+  const fix = x => { if (x.cover in map) x.cover = map[x.cover]; };
+  OFF.forEach(o => { fix(o); o.tracks.forEach(fix); });
+  if (missing.length) { console.warn('Portadas no encontradas:', missing); toast(`No se encontraron ${missing.length} portada(s). Revisa las rutas en playlists.json (las imágenes van en la carpeta "imagenes").`); }
+  render();
 }
 async function loadOfficial() {
   if (await initVault()) return; /* modo privado: listas y mp3 cifrados */
-  try { const r = await fetch('playlists.json', { cache: 'no-cache' }); if (!r.ok) return; setOfficial(await r.json()); }
+  try { const r = await fetch('playlists.json', { cache: 'no-cache' }); if (!r.ok) return; await setOfficial(await r.json()); }
   catch { /* sin playlists.json o sin red: simplemente no hay listas verificadas */ }
 }
 
@@ -697,7 +723,17 @@ function unlockAudio() {
 addEventListener('keydown', e => { if (e.code === 'Space' && !e.target.closest('input,textarea,select,button')) { e.preventDefault(); toggle(); } });
 addEventListener('resize', () => applyMini());
 subs.add(full => { if (full) { renderSide(); if (S.view !== 'set') { if ($('.rows', main)) { const t = $('.mhd small:last-child', main); paintRows(); if (t && (V.ctx === 'lib' || V.ctx === 'list')) t.textContent = (S.view === 'lib' ? lib.length : listBy(S.view).ids.length) + ' canciones'; } } } else markCur(); });
-buildMini(); render(); refreshLib(); loadOfficial();
+buildMini(); render();
+bootSplash([refreshLib(), loadOfficial(), new Promise(r => document.readyState === 'complete' ? r() : addEventListener('load', r, { once: true }))]);
+/* pantalla de entrada: logo grande, nombre y barra que avanza según carga todo (mínimo ~1,5 s para que se vea la animación) */
+function bootSplash(tasks) {
+  const sp = $('#splash'); if (!sp) return;
+  const bar = $('.sbar i', sp); let done = 0;
+  const step = () => { done++; bar.style.width = Math.round(done / tasks.length * 100) + '%'; };
+  const finish = () => { if (!sp.isConnected) return; sp.classList.add('done'); setTimeout(() => sp.remove(), 700); };
+  Promise.all([Promise.allSettled(tasks.map(p => Promise.resolve(p).finally(step))), new Promise(r => setTimeout(r, 1500))]).then(finish);
+  setTimeout(finish, 8000); /* seguridad: nunca se queda atascada */
+}
 /* latido: pase lo que pase, el reproductor (también el flotante) refleja la canción y el minuto reales */
 let sig = '';
 function beat() {

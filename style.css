@@ -213,3 +213,15 @@ body.playing .row.cur .n b::before{animation:eq .8s ease-in-out infinite alterna
   .mseek{height:24px}
   #mini.m-dot:not(.in-pip){left:auto!important;right:12px;width:auto!important;border-radius:999px}
 }
+
+/* ===================== pantalla de entrada ===================== */
+#splash{position:fixed;inset:0;z-index:10000;background:radial-gradient(circle at 50% 38%,#173a1c,#0c0c10 68%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;
+  transition:opacity .55s ease,transform .55s ease,visibility .55s}
+#splash.done{opacity:0;transform:scale(1.06);visibility:hidden;pointer-events:none}
+#splash img{width:min(44vw,210px);height:min(44vw,210px);filter:blur(0) drop-shadow(0 0 28px rgba(80,255,0,.35));animation:logoIn .95s cubic-bezier(.2,.9,.25,1.12) both,logoPulse 2.4s ease-in-out .95s infinite}
+#splash h1{margin:0;font-size:clamp(36px,9vw,56px);font-weight:800;letter-spacing:.16em;text-indent:.16em;animation:titleIn .8s .4s ease both}
+.sbar{width:min(260px,60vw);height:4px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;animation:fade .6s .7s both}
+.sbar i{display:block;height:100%;width:12%;border-radius:4px;background:var(--ac);box-shadow:0 0 12px var(--ac);transition:width .4s ease}
+@keyframes logoIn{from{opacity:0;transform:scale(.35) rotate(-14deg);filter:blur(14px) drop-shadow(0 0 28px rgba(80,255,0,0))}to{opacity:1;transform:none;filter:blur(0) drop-shadow(0 0 28px rgba(80,255,0,.35))}}
+@keyframes logoPulse{50%{transform:scale(1.045)}}
+@keyframes titleIn{from{opacity:0;transform:translateY(14px);letter-spacing:.5em}to{opacity:1;transform:none;letter-spacing:.16em}}

@@ -51,4 +51,10 @@ Límites que conviene saber: la contraseña es compartida (no se puede expulsar 
 ## Móvil y animaciones
 - En pantallas pequeñas las listas pasan a chips arriba, cada canción tiene ♥ y un menú ⋯, y el reproductor es una barra fija abajo. Todo funciona con el dedo (en Ajustes se elige tamaño, colores y si se ve la portada).
 - Animaciones al pasar el ratón (no en táctil), ecualizador en la canción que suena y entrada suave de pantallas. Se desactivan si el sistema pide menos movimiento.
-- Favicon: logo de fondo transparente (`favicon.png`); `apple-touch-icon.png` conserva el fondo porque iOS no admite transparencia.
+- Favicon: logo cuadrado con fondo y esquinas redondeadas (`favicon.png`, `favicon-32.png`); `apple-touch-icon.png` es cuadrado porque iOS aplica su propio redondeo.
+
+## Portadas, álbumes y pantalla de entrada
+- Las imágenes van en la carpeta `imagenes/` (junto a `vault-src/`). En `playlists.json`: `"cover": "imagenes/nombre.jpg"`. Si una ruta falla, Ousify la busca en `imagenes/` con otras extensiones (jpg/png/webp) y, si no la encuentra, avisa con un mensaje.
+- Atajo por carpeta: una lista con `"folder": "vault-src/The Creator"` admite pistas escritas como `{ "file": "Título - Artista.mp3" }`; título y artista salen del nombre del archivo, y álbum y portada se heredan de la lista.
+- Álbum «The Creator»: portada `imagenes/the-creator.jpg`, carpeta `vault-src/The Creator/` (ver su LEEME.txt).
+- Al abrir la web sale una pantalla de entrada (logo grande, «Ousify» y barra de carga) mientras carga todo.
