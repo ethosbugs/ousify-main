@@ -1,0 +1,10 @@
+{
+  "lists": [
+    {
+      "id": "reggaeton", "name": "Reggaetón", "description": "Para el grupo", "cover": "https://…/portada.jpg",
+      "tracks": [
+        { "title": "Amanece", "artist": "Anuel AA", "album": "Real Hasta la Muerte", "year": "2018", "cover": "https://…/amanece.jpg", "file": "Reggaeton/Amanece - Anuel AA.mp3" }
+      ]
+    }
+  ]
+}

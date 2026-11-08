@@ -27,6 +27,7 @@ const I = {
   x: '<path d="M6 6l12 12M18 6L6 18"/>',
   plus: '<path d="M12 5v14M5 12h14"/>',
   edit: '<path d="M5 19l1-4L16 5l3 3L9 18z"/>',
+  more: '<circle cx="5" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="19" cy="12" r="1.7" fill="currentColor"/>',
 };
 const ic = (n, s = 20) => `<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${I[n]}</svg>`;
 
@@ -140,7 +141,8 @@ const listBy = id => S.lists.find(l => l.id === id);
 const inList = (t, lid) => { const l = libFor(t); return !!l && listBy(lid).ids.includes(l.id); };
 const isFav = t => !!t && inList(t, FAV);
 const hue = s => { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
-const cover = t => t && t.cover ? `center/cover url('${t.cover.replace(/'/g, '%27')}')` :
+const absUrl = u => { try { return new URL(u, location.href).href; } catch { return u; } }; /* rutas relativas -> absolutas (también valen en la ventana flotante) */
+const cover = t => t && t.cover ? `center/cover url('${absUrl(t.cover).replace(/'/g, '%27')}')` :
   `linear-gradient(135deg,hsl(${hue(t ? t.name : 'x')} 70% 45%),hsl(${(hue(t ? t.name : 'x') + 60) % 360} 70% 28%))`;
 
 async function ensureInLib(t) {
@@ -188,9 +190,16 @@ async function play(list, i, keep) {
   if (!keep) { P.played.clear(); P.back = []; }
   audio.pause(); if (P.url) { URL.revokeObjectURL(P.url); P.url = null; }
   P.queue = list; P.i = i; P.cur = t;
-  if (t.blob) { P.url = URL.createObjectURL(t.blob); audio.src = P.url; } else audio.src = t.url;
+  if (t.blob) { P.url = URL.createObjectURL(t.blob); audio.src = P.url; }
+  else if (isVault(t)) {
+    if (!VAULT.key) { toast('Desbloquea primero con la contraseña.'); return; }
+    emit(); /* muestra el título mientras se descarga y descifra */
+    try { const bl = await vaultBlob(t.url); if (P.cur !== t) return; P.url = URL.createObjectURL(bl); audio.src = P.url; }
+    catch (e) { console.error(e); toast('No se pudo descargar o descifrar esta canción.'); return; }
+  } else audio.src = t.url;
   if (!S.mini.visible) { S.mini.visible = true; save(); applyMini(); }
   try { await audio.play(); } catch (e) { console.warn(e); }
+  prefetchNext();
   if ('mediaSession' in navigator) {
     try { navigator.mediaSession.metadata = new MediaMetadata({ title: t.name, artist: t.artist || '', artwork: t.cover ? [{ src: t.cover }] : [] }); } catch { }
   }
@@ -238,12 +247,16 @@ async function jamendoSearch(q) {
 async function saveOffline(t) {
   let l = await ensureInLib(t);
   if (l.blob) return l;
-  const r = await fetch(l.dl || l.url); if (!r.ok) throw new Error('HTTP ' + r.status);
-  l.blob = await r.blob(); delete l.url; delete l.dl; await putTrack(l); await refreshLib(); return l;
+  l.blob = await trackBlob(l); delete l.url; delete l.dl; await putTrack(l); await refreshLib(); return l;
+}
+async function trackBlob(t) {
+  if (t.blob) return t.blob;
+  if (isVault(t)) { if (!VAULT.key) throw new Error('bloqueado'); return vaultBlob(t.url); }
+  const r = await fetch(t.dl || t.url); if (!r.ok) throw new Error('HTTP ' + r.status); return r.blob();
 }
 async function exportMp3(t) {
-  let blob = t.blob;
-  if (!blob) { try { const r = await fetch(t.dl || t.url); if (!r.ok) throw 0; blob = await r.blob(); } catch { toast('El servidor no permite descargar este mp3.'); return; } }
+  let blob;
+  try { blob = await trackBlob(t); } catch { toast('No se puede descargar este mp3.'); return; }
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
   a.download = `${t.artist ? t.artist + ' - ' : ''}${t.name}.mp3`.replace(/[\\/:*?"<>|]/g, '_'); a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }
@@ -268,7 +281,7 @@ function showMenu(x, y, entries) {
   menu.innerHTML = '';
   entries.forEach(e => { if (e === '-') { menu.append(el('hr')); return; } const d = el('div', '', esc(e[0])); d.onclick = () => { hideMenu(); e[1](); }; menu.append(d); });
   menu.hidden = false;
-  menu.style.left = Math.min(x, innerWidth - menu.offsetWidth - 6) + 'px'; menu.style.top = Math.min(y, innerHeight - menu.offsetHeight - 6) + 'px';
+  menu.style.left = Math.max(6, Math.min(x, innerWidth - menu.offsetWidth - 6)) + 'px'; menu.style.top = Math.max(6, Math.min(y, innerHeight - menu.offsetHeight - 6)) + 'px';
 }
 addEventListener('pointerdown', e => { if (!e.target.closest('#menu')) hideMenu(); });
 addEventListener('blur', hideMenu);
@@ -290,7 +303,7 @@ function ask(title, fields, init = {}, extra = []) {
 /* ---------------------------- barra lateral ---------------------------- */
 function renderSide() {
   const s = $('#side');
-  const item = (id, label, count, drop) => `<div class="si${S.view === id ? ' on' : ''}" data-v="${id}"${drop ? ' data-drop' : ''}><span>${esc(label)}</span><i>${count ?? ''}</i></div>`;
+  const item = (id, label, count, drop) => `<div class="si${S.view === id ? ' on' : ''}" data-v="${id}"${drop ? ' data-drop' : ''}${id.startsWith('o:') ? ' data-off' : ''}><span>${esc(label)}</span><i>${count ?? ''}</i></div>`;
   s.innerHTML = `<div class="logo"><img src="ousify2.png" alt="" width="30" height="30"> Ousify</div>${item('lib', 'Biblioteca', lib.length)}${item('web', 'Buscar mp3')}
     <div class="sh">Mis listas<button data-a="newlist" title="Nueva lista">+</button></div>
     ${S.lists.map(l => item(l.id, l.name, l.ids.length, true)).join('')}
@@ -323,6 +336,7 @@ function rowHTML(t, i) {
     <div class="th" style="background:${cover(t)}"></div>
     <div class="n"><b>${esc(t.name)}</b><span>${esc(t.artist || '—')}${t.from ? `<i class="badge">${esc(t.from)}</i>` : ''}${t.blob ? '<i class="badge">mp3 guardado</i>' : ''}</span></div>
     <button class="fav${isFav(t) ? ' on' : ''}" data-h title="Tus favoritas">${ic('heart', 17)}</button>
+    <button data-more title="Más opciones">${ic('more', 18)}</button>
     <button data-l title="Añadir a una lista">${ic('plus', 17)}</button>
     ${ctx !== 'web' && ctx !== 'off' ? `<button data-e title="Editar nombre, artista y portada">${ic('edit', 16)}</button>` : ''}
     <button data-dl title="${t.blob ? 'Descargar mp3 a tu equipo' : ctx === 'web' ? 'Guardar mp3 en tu biblioteca' : 'Guardar mp3 sin conexión'}">${ic('dl', 17)}</button>
@@ -387,12 +401,71 @@ function renderOfficial(v) {
       <input data-f placeholder="Filtrar…" value="${esc(V.filter)}"><button class="btn" data-a="copylist">Copiar a mis listas</button></div><div class="rows"></div>`;
   paintRows();
 }
+function setOfficial(j) {
+  OFF = (j.lists || []).filter(l => l && l.id && l.name).map(l => ({ ...l, tracks: (l.tracks || []).map(t => ({ url: t.url || (t.file ? 'vault:' + t.file : ''), name: t.title || t.name || 'Sin título', artist: t.artist || '', album: t.album || '', year: t.year || '', cover: t.cover || '', from: 'Ousify' })).filter(t => t.url) }));
+  if (OFF.length) render();
+}
 async function loadOfficial() {
-  try {
-    const r = await fetch('playlists.json', { cache: 'no-cache' }); if (!r.ok) return; const j = await r.json();
-    OFF = (j.lists || []).filter(l => l && l.id && l.name).map(l => ({ ...l, tracks: (l.tracks || []).filter(t => t.url).map(t => ({ url: t.url, name: t.title || t.name || 'Sin título', artist: t.artist || '', album: t.album || '', year: t.year || '', cover: t.cover || '', from: 'Ousify' })) }));
-    if (OFF.length) render();
-  } catch { /* sin playlists.json o sin red: simplemente no hay listas verificadas */ }
+  if (await initVault()) return; /* modo privado: listas y mp3 cifrados */
+  try { const r = await fetch('playlists.json', { cache: 'no-cache' }); if (!r.ok) return; setOfficial(await r.json()); }
+  catch { /* sin playlists.json o sin red: simplemente no hay listas verificadas */ }
+}
+
+/* ---------------------------- bóveda privada: mp3 cifrados con la contraseña del grupo ---------------------------- */
+/* Los archivos de vault/ están cifrados (AES-256-GCM, clave derivada con PBKDF2). Sin la contraseña son datos ilegibles. */
+const VAULT = { meta: null, key: null };
+const isVault = t => !!t && typeof t.url === 'string' && t.url.startsWith('vault:');
+const b64d = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const b64e = u => btoa(String.fromCharCode(...u));
+async function deriveVaultKey(pass) {
+  const m = VAULT.meta, base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pass.normalize('NFKC')), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64d(m.salt), iterations: m.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+}
+const vdec = async buf => { const u = new Uint8Array(buf); return crypto.subtle.decrypt({ name: 'AES-GCM', iv: u.subarray(0, 12) }, VAULT.key, u.subarray(12)); };
+const VC = new Map(); /* caché en memoria de las últimas canciones descifradas */
+function vaultBlob(url) {
+  if (!VC.has(url)) {
+    const p = fetch('vault/' + url.slice(6)).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.arrayBuffer(); }).then(vdec).then(b => new Blob([b], { type: 'audio/mpeg' }));
+    p.catch(() => VC.delete(url)); VC.set(url, p);
+    while (VC.size > 4) VC.delete(VC.keys().next().value);
+  }
+  return VC.get(url);
+}
+function prefetchNext() {
+  const n = P.queue.length; if (!n || P.shuf || !VAULT.key) return;
+  const t = P.queue[(P.i + 1) % n]; if (isVault(t) && !t.blob) vaultBlob(t.url).catch(() => { });
+}
+async function openVault(key) {
+  VAULT.key = key;
+  const r = await fetch('vault/index.enc', { cache: 'no-cache' }); if (!r.ok) throw new Error('sin índice');
+  setOfficial(JSON.parse(new TextDecoder().decode(await vdec(await r.arrayBuffer())))); /* falla si la contraseña es incorrecta */
+}
+function showLock() {
+  const d = el('div'); d.id = 'lock';
+  d.innerHTML = `<form class="lockc"><img src="ousify2.png" width="76" height="76" alt=""><h2>Ousify</h2><small>Acceso privado</small>
+    <input type="password" name="p" placeholder="Contraseña del grupo" autocomplete="current-password">
+    <label class="chk"><input type="checkbox" name="r"> Recordar en este dispositivo</label>
+    <button class="pri">Entrar</button><div class="err"></div></form>`;
+  document.body.append(d);
+  const f = $('form', d), err = $('.err', d), btn = $('button', f);
+  f.onsubmit = async e => {
+    e.preventDefault(); if (!f.elements.p.value) return; err.textContent = ''; btn.disabled = true; btn.textContent = 'Comprobando…';
+    try {
+      const key = await deriveVaultKey(f.elements.p.value); await openVault(key);
+      if (f.elements.r.checked) localStorage.setItem('ousify_vk', b64e(new Uint8Array(await crypto.subtle.exportKey('raw', key))));
+      d.remove();
+    } catch (ex) { VAULT.key = null; err.textContent = ex.name === 'OperationError' ? 'Contraseña incorrecta.' : 'No se pudo conectar. Revisa tu conexión.'; btn.disabled = false; btn.textContent = 'Entrar'; f.elements.p.select(); }
+  };
+  setTimeout(() => f.elements.p.focus(), 50);
+}
+async function initVault() {
+  try { const r = await fetch('vault/meta.json', { cache: 'no-cache' }); if (!r.ok) return false; VAULT.meta = await r.json(); } catch { return false; }
+  const saved = localStorage.getItem('ousify_vk');
+  if (saved) {
+    try { await openVault(await crypto.subtle.importKey('raw', b64d(saved), 'AES-GCM', true, ['decrypt'])); return true; }
+    catch (ex) { VAULT.key = null; if (ex.name === 'OperationError') localStorage.removeItem('ousify_vk'); }
+  }
+  showLock(); return true;
 }
 async function editTrack(t) {
   const fields = [['name', 'Título'], ['artist', 'Artista'], ['cover', 'Portada (enlace a una imagen)']]; if (t.url) fields.push(['url', 'Enlace del mp3']);
@@ -406,6 +479,11 @@ async function editTrack(t) {
   if (r.cover !== t.cover) { t.coverAuto = false; t.coverTried = true; }
   Object.assign(t, { name: r.name || t.name, artist: r.artist, cover: r.cover }); if (t.url && r.url) t.url = r.url;
   const { from, ...rec } = t; await putTrack(rec); emit(true);
+}
+function moveInList(t, d) {
+  const l = listBy(S.view); if (!l || !t.id) return;
+  const i = l.ids.indexOf(t.id), j = i + d; if (i < 0 || j < 0 || j >= l.ids.length) return;
+  [l.ids[i], l.ids[j]] = [l.ids[j], l.ids[i]]; save(); emit(true);
 }
 function listMenu(ev, t) {
   const rect = ev.target.closest('button').getBoundingClientRect(), l = libFor(t);
@@ -434,6 +512,14 @@ main.onclick = async e => {
   if (a === 'dellist') { const l = listBy(S.view); if (confirm(`¿Eliminar la lista “${l.name}”? (las canciones se mantienen en la biblioteca)`)) { S.lists = S.lists.filter(x => x !== l); S.view = 'lib'; save(); render(); } return; }
   if (!r) return; const t = V.tracks[+r.dataset.i]; if (!t) return;
   if (bt && bt.dataset.h != null) return toggleFav(t);
+  if (bt && bt.dataset.more != null) { /* menú ⋯ (en móvil sustituye a los botones sueltos) */
+    const q = s => r.querySelector(s), ents = [['Añadir a una lista…', () => listMenu({ target: bt }, t)]];
+    if (V.manual && t.id) ents.push(['Subir en la lista', () => moveInList(t, -1)], ['Bajar en la lista', () => moveInList(t, 1)]);
+    if (q('[data-e]')) ents.push(['Editar…', () => q('[data-e]').click()]);
+    ents.push([t.blob ? 'Descargar mp3 a mi dispositivo' : 'Guardar mp3 sin conexión', () => q('[data-dl]').click()]);
+    if (q('[data-rm]')) ents.push('-', [V.ctx === 'lib' ? 'Borrar de la biblioteca' : 'Quitar de la lista', () => q('[data-rm]').click()]);
+    const rc = bt.getBoundingClientRect(); return showMenu(rc.right - 230, rc.bottom + 4, ents);
+  }
   if (bt && bt.dataset.l != null) return listMenu(e, t);
   if (bt && bt.dataset.e != null) return editTrack(t);
   if (bt && bt.dataset.dl != null) {
@@ -525,6 +611,7 @@ function buildMini() {
         <button class="mbtn fav" data-m="fav" title="Tus favoritas">${ic('heart')}</button></div></div>
     <div class="mdot"><div class="mdcov"></div><button class="mbtn mplay" data-m="play" style="width:38px;height:38px">${ic('play', 20)}</button><button class="mbtn" data-m="mode" title="Expandir">${ic('up', 18)}</button></div>
     <div class="mrs" title="Arrastra para cambiar el tamaño"></div>`;
+  if (!('documentPictureInPicture' in window)) $('[data-m=pip]', m).style.display = 'none'; /* móvil, Firefox, Safari: no hay ventana flotante */
   m.onclick = e => {
     const b = e.target.closest('[data-m]'); if (!b) return; const a = b.dataset.m;
     if (a === 'play') toggle(); else if (a === 'next') next(); else if (a === 'prev') prev();
@@ -568,6 +655,7 @@ function syncMini() {
   $('[data-m=fav]', m).classList.toggle('on', isFav(t));
   document.title = t ? `${audio.paused ? '' : '▶ '}${t.name}${t.artist ? ' — ' + t.artist : ''}` : 'Ousify';
   if (P.pip) P.pip.document.title = document.title;
+  document.body.classList.toggle('playing', !audio.paused && !!t);
   tickMini();
 }
 function tickMini() {
@@ -596,6 +684,16 @@ $('#filepick').onchange = async e => { const n = await addFiles(e.target.files);
 $('#dirpick').onchange = async e => { const n = await addFiles(e.target.files); e.target.value = ''; if (n) toast(`${n} mp3 añadidos.`); };
 document.addEventListener('dragover', e => { if (e.dataTransfer.types.includes('Files')) e.preventDefault(); });
 document.addEventListener('drop', async e => { if (e.dataTransfer.files.length) { e.preventDefault(); const n = await addFiles(e.dataTransfer.files); if (n) toast(`${n} mp3 añadidos.`); } });
+/* iPhone/iPad: el audio solo se puede iniciar dentro de un gesto; "desbloqueamos" el reproductor en el primer toque
+   para que las canciones que tardan en cargar (descifrado) puedan arrancar después. */
+let audioUnlocked = false;
+function unlockAudio() {
+  if (audioUnlocked) return; audioUnlocked = true;
+  if (P.cur || audio.src) return;
+  audio.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=';
+  audio.play().then(() => { if (!P.cur) audio.pause(); }).catch(() => { });
+}
+['pointerdown', 'touchend', 'keydown'].forEach(ev => addEventListener(ev, unlockAudio, { once: true, passive: true }));
 addEventListener('keydown', e => { if (e.code === 'Space' && !e.target.closest('input,textarea,select,button')) { e.preventDefault(); toggle(); } });
 addEventListener('resize', () => applyMini());
 subs.add(full => { if (full) { renderSide(); if (S.view !== 'set') { if ($('.rows', main)) { const t = $('.mhd small:last-child', main); paintRows(); if (t && (V.ctx === 'lib' || V.ctx === 'list')) t.textContent = (S.view === 'lib' ? lib.length : listBy(S.view).ids.length) + ' canciones'; } } } else markCur(); });

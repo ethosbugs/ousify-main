@@ -128,3 +128,88 @@ button{cursor:pointer}
 #mini.in-pip .mhead{display:none}
 #mini.in-pip .mbody{padding-top:14px}
 #mini.in-pip.m-dot .mdot{justify-content:center;padding:20px}
+
+/* pantalla de acceso privado */
+#lock{position:fixed;inset:0;z-index:9500;background:radial-gradient(circle at 50% 30%,#14281a,#0c0c10 70%);display:grid;place-items:center}
+.lockc{display:grid;gap:12px;justify-items:center;width:min(340px,90vw);text-align:center}
+.lockc h2{margin:0;font-size:26px}
+.lockc small{opacity:.6;margin-top:-8px}
+.lockc input[type=password]{width:100%;background:#1a1a21;border:1px solid var(--line);border-radius:10px;padding:11px 14px;outline:0;user-select:text;font-size:15px}
+.lockc .chk{display:flex;gap:8px;align-items:center;font-size:13px;opacity:.8}
+.lockc .pri{width:100%;padding:10px}
+.lockc .err{color:#ff6b81;min-height:18px;font-size:13px}
+
+/* ===================== animaciones al pasar el ratón ===================== */
+.si,.row,.row .th,.btn,.pri,.ghost,.mbtn,.mcov,.mhd .cv,.sh button,.row button,#menu div{transition:transform .18s ease,background-color .18s ease,box-shadow .18s ease,opacity .18s ease,color .18s ease,filter .18s ease}
+@media (hover:hover){
+  .si:hover{transform:translateX(4px)}
+  .row:hover .th{transform:scale(1.08) rotate(-1.5deg)}
+  .row button:hover{transform:scale(1.18)}
+  .btn:hover,.ghost:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.35)}
+  .pri:hover{transform:translateY(-2px);box-shadow:0 6px 22px color-mix(in srgb,var(--ac) 55%,transparent);filter:brightness(1.08)}
+  .mbtn:hover{transform:scale(1.14)}
+  .mcov:hover{transform:scale(1.03)}
+  .mhd .cv:hover{transform:scale(1.04) rotate(-1deg)}
+  .sh button:hover{transform:rotate(90deg)}
+}
+.btn:active,.pri:active,.ghost:active,.mbtn:active,.row button:active{transform:scale(.94)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes eq{0%{background-size:3px 30%,3px 90%,3px 50%}100%{background-size:3px 90%,3px 30%,3px 80%}}
+.mhd,.acts,.set{animation:fadeUp .28s ease both}
+.acts{animation-delay:.04s}
+.modal{animation:fade .15s ease}
+.card{animation:pop .18s ease}
+#menu{animation:pop .12s ease;transform-origin:top left}
+#toast{animation:fade .2s ease}
+.lockc{animation:fadeUp .4s ease both}
+/* ecualizador en la canción que suena */
+.row.cur .n b::before{content:"";display:inline-block;width:12px;height:12px;margin-right:7px;vertical-align:-1px;
+  background:linear-gradient(var(--ac),var(--ac)) 0 100%/3px 40% no-repeat,linear-gradient(var(--ac),var(--ac)) 50% 100%/3px 80% no-repeat,linear-gradient(var(--ac),var(--ac)) 100% 100%/3px 60% no-repeat}
+body.playing .row.cur .n b::before{animation:eq .8s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ===================== móvil ===================== */
+.row [data-more]{display:none}
+@media (pointer:coarse){[data-a=dir]{display:none}#menu div{padding:12px 14px;font-size:15px}}
+@media (max-width:700px){
+  html,body{overscroll-behavior:none}
+  #app{height:100vh;height:100dvh;grid-template-rows:auto minmax(0,1fr)}
+  #side{gap:8px;padding:8px 10px;scrollbar-width:none}
+  #side::-webkit-scrollbar{display:none}
+  .logo{display:flex;padding:0 4px 0 0;font-size:0;flex:none}
+  .logo img{width:30px;height:30px}
+  .si{flex:none;padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.07);opacity:1;font-size:14px}
+  .si i{display:none}
+  .si.on{background:var(--ac);color:#04130a;font-weight:600}
+  .si[data-off] span::before{content:"✓ "}
+  #main{overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .rows{flex:none;overflow:visible;padding-bottom:130px}
+  .set{overflow:visible;padding:14px 14px 130px}
+  .mhd{padding:14px 14px 6px;gap:12px}
+  .mhd .cv{width:84px;height:84px;border-radius:12px}
+  .mhd h1{font-size:22px}
+  .acts{padding:4px 14px 10px;gap:8px}
+  .acts .btn,.acts .pri{padding:9px 14px}
+  .acts select,.acts input{flex:1 1 40%;min-width:0;max-width:none;padding:9px 10px}
+  .row{padding:7px 12px;min-height:60px}
+  .row .th{width:46px;height:46px}
+  .row button{padding:10px}
+  .row [data-l],.row [data-e],.row [data-dl],.row [data-rm]{display:none}
+  .row [data-more]{display:grid}
+  .grip{display:none}
+  .set label,.fld{flex-wrap:wrap}
+  .set input[type=range]{width:min(200px,50vw)}
+  .set input[type=text]{width:100%}
+  input,select,textarea{font-size:16px}
+  /* mini reproductor: barra fija abajo */
+  #mini:not(.in-pip){left:8px!important;right:8px;top:auto!important;bottom:calc(8px + env(safe-area-inset-bottom));width:auto!important;transform:none!important;border-radius:18px}
+  #mini:not(.in-pip) .mhead,#mini:not(.in-pip) .mrs{display:none}
+  #mini.m-full:not(.in-pip) .mbody,#mini.m-compact:not(.in-pip) .mbody{grid-template-columns:auto 1fr auto;grid-template-areas:"cov info ctl" "seek seek seek";align-items:center;gap:2px 10px;padding:10px 12px 6px}
+  #mini.m-full:not(.in-pip) .mcov,#mini.m-compact:not(.in-pip) .mcov{width:46px;border-radius:10px}
+  #mini.m-full:not(.in-pip) .mtm,#mini.m-full:not(.in-pip) [data-m=shuf],#mini.m-full:not(.in-pip) [data-m=rep],#mini.m-full:not(.in-pip) [data-m=fav]{display:none}
+  #mini.m-full:not(.in-pip) .mplay,#mini.m-compact:not(.in-pip) .mplay{width:42px;height:42px}
+  .mseek{height:24px}
+  #mini.m-dot:not(.in-pip){left:auto!important;right:12px;width:auto!important;border-radius:999px}
+}
