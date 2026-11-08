@@ -1,4 +1,173 @@
 {
-  "_ayuda": "Aquí van las listas verificadas de Ousify. Formato: { id, name, description, cover, tracks: [ { title, artist, album, year, cover, url } ] }. 'url' es el enlace al mp3 (por ejemplo 'music/cancion.mp3' si lo subes al repositorio). Mientras 'lists' esté vacío no aparece nada.",
-  "lists": []
+  "lists": [
+    {
+      "id": "un-verano-sin-ti",
+      "name": "Un Verano Sin Ti",
+      "description": "Álbum Un Verano Sin Ti - Bad Bunny",
+      "cover": "",
+      "tracks": [
+        {
+          "title": "Agosto",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Agosto - Bad Bunny.mp3"
+        },
+        {
+          "title": "Aguacero",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Aguacero - Bad Bunny.mp3"
+        },
+        {
+          "title": "Andrea",
+          "artist": "Bad Bunny & Buscabulla",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Andrea - Bad Bunny.mp3"
+        },
+        {
+          "title": "Callaita",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Callaita - Bad Bunny.mp3"
+        },
+        {
+          "title": "Después de la Playa",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Después de la Playa - Bad Bunny.mp3"
+        },
+        {
+          "title": "Dos Mil 16",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Dos Mil 16 - Bad Bunny.mp3"
+        },
+        {
+          "title": "Efecto",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Efecto - Bad Bunny.mp3"
+        },
+        {
+          "title": "El Apagón",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/El Apagón - Bad Bunny.mp3"
+        },
+        {
+          "title": "Enséñame a Bailar",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Enséñame a Bailar - Bad Bunny.mp3"
+        },
+        {
+          "title": "La Corriente",
+          "artist": "Bad Bunny & Tony Dize",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/La Corriente - Bad Bunny.mp3"
+        },
+        {
+          "title": "Me Fui de Vacaciones",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Me Fui de Vacaciones - Bad Bunny.mp3"
+        },
+        {
+          "title": "Me Porto Bonito",
+          "artist": "Bad Bunny & Chencho Corleone",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Me Porto Bonito - Bad Bunny.mp3"
+        },
+        {
+          "title": "Moscow Mule",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Moscow Mule - Bad Bunny.mp3"
+        },
+        {
+          "title": "Neverita",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Neverita - Bad Bunny.mp3"
+        },
+        {
+          "title": "Ojitos Lindos",
+          "artist": "Bad Bunny & Bomba Estéreo",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Ojitos Lindos - Bad Bunny.mp3"
+        },
+        {
+          "title": "Otro Atardecer",
+          "artist": "Bad Bunny & The Marías",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Otro Atardecer - Bad Bunny.mp3"
+        },
+        {
+          "title": "Party",
+          "artist": "Bad Bunny & Rauw Alejandro",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Party - Bad Bunny.mp3"
+        },
+        {
+          "title": "Tarot",
+          "artist": "Bad Bunny & Jhayco",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Tarot - Bad Bunny.mp3"
+        },
+        {
+          "title": "Tití Me Preguntó",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Tití Me Preguntó - Bad Bunny.mp3"
+        },
+        {
+          "title": "Un Coco",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Un Coco - Bad Bunny.mp3"
+        },
+        {
+          "title": "Un Ratito",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Un Ratito - Bad Bunny.mp3"
+        },
+        {
+          "title": "Un Verano Sin Ti",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Un Verano Sin Ti - Bad Bunny.mp3"
+        },
+        {
+          "title": "Yo No Soy Celoso",
+          "artist": "Bad Bunny",
+          "album": "Un Verano Sin Ti",
+          "year": "2022",
+          "url": "vault-src/Un Verano Sin Ti/Yo No Soy Celoso - Bad Bunny.mp3"
+        }
+      ]
+    }
+  ]
 }
