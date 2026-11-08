@@ -1,0 +1,4 @@
+{
+  "_ayuda": "Aquí van las listas verificadas de Ousify. Formato: { id, name, description, cover, tracks: [ { title, artist, album, year, cover, url } ] }. 'url' es el enlace al mp3 (por ejemplo 'music/cancion.mp3' si lo subes al repositorio). Mientras 'lists' esté vacío no aparece nada.",
+  "lists": []
+}
