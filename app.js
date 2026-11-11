@@ -38,7 +38,7 @@ const DEF = {
   orders: {},
   mini: { visible: true, mode: 'full', cover: true, blur: true, accent: '#1db954', bg: '#16161c', text: '#ffffff', style: 'solid', op: .96, scale: 1, x: null, y: null },
   keys: { jamendo: '' },
-  vol: 1, view: 'lib', fname: 'ta', autoCover: true,
+  vol: 1, view: 'lib', fname: 'ta', autoCover: true, xfade: 5, ocov: {},
 };
 let S; try { S = JSON.parse(localStorage.getItem('ld3')); } catch { }
 { const d = structuredClone(DEF); S = Object.assign(d, S || {}); S.mini = { ...DEF.mini, ...S.mini }; S.keys = { ...DEF.keys, ...S.keys };
@@ -172,51 +172,99 @@ function viewTracks(view) {
 }
 
 /* ---------------------------- motor de reproducción ---------------------------- */
-const audio = new Audio(); audio.preload = 'metadata'; audio.volume = S.vol;
-const P = { queue: [], i: -1, cur: null, url: null, shuf: false, rep: false, played: new Set(), back: [] };
+/* Dos <audio> que se alternan: la canción siguiente empieza ANTES de que acabe la actual (fundido cruzado).
+   Así el sonido no se interrumpe nunca entre canciones y el móvil, con la pantalla apagada, no suspende la página. */
+const mkAudio = () => { const a = new Audio(); a.preload = 'auto'; a.volume = S.vol; return a; };
+const AUD = [mkAudio(), mkAudio()]; let audio = AUD[0];
+const other = () => audio === AUD[0] ? AUD[1] : AUD[0];
+const P = { queue: [], i: -1, cur: null, tok: 0, shuf: false, rep: false, played: new Set(), back: [], pre: null, xf: false };
+const F = { timer: null, old: null };
 const subs = new Set(), tsubs = new Set();
 /* cada suscriptor va aislado: si uno falla, el reproductor sigue actualizándose */
 const safe = f => a => { try { f(a); } catch (err) { console.error(err); } };
 const emit = full => subs.forEach(f => safe(f)(full)); const tick = () => tsubs.forEach(f => safe(f)());
-['play', 'pause', 'playing', 'loadedmetadata', 'durationchange', 'seeked', 'emptied'].forEach(e => audio.addEventListener(e, () => emit()));
-audio.addEventListener('timeupdate', tick);
-audio.addEventListener('ended', () => next(true));
-audio.addEventListener('error', () => { if (P.cur) toast('No se puede reproducir este mp3 (¿enlace caído o bloqueado?).'); });
+const release = a => { a.pause(); if (a._url) { URL.revokeObjectURL(a._url); a._url = null; } };
+AUD.forEach(a => {
+  ['play', 'pause', 'playing', 'loadedmetadata', 'durationchange', 'seeked', 'emptied'].forEach(e => a.addEventListener(e, () => { if (a === audio) emit(); }));
+  a.addEventListener('timeupdate', () => { if (a === audio) { tick(); maybeFade(); } });
+  a.addEventListener('ended', () => { if (a !== audio) return; if (P.xf) { return; } next(true); });
+  a.addEventListener('error', () => { if (a === audio && P.cur && a.src && !a.src.startsWith('data:')) toast('No se puede reproducir este mp3 (¿enlace caído o bloqueado?).'); });
+});
 const curTime = () => audio.currentTime || 0;
 const durTime = () => isFinite(audio.duration) ? audio.duration : 0;
 
-async function play(list, i, keep) {
+function endFade() {
+  clearInterval(F.timer); F.timer = null;
+  if (F.old) { release(F.old); F.old = null; }
+  P.xf = false; try { audio.volume = S.vol; } catch { }
+}
+function startFade(old) {
+  clearInterval(F.timer); F.old = old;
+  const rem = old.ended ? 0 : Math.max(0, (old.duration || 0) - old.currentTime), D = Math.min(S.xfade || 0, rem) * 1000, t0 = Date.now();
+  if (D < 200) { endFade(); return; }
+  const step = () => {
+    const p = Math.min(1, (Date.now() - t0) / D);
+    try { old.volume = S.vol * Math.cos(p * Math.PI / 2); audio.volume = S.vol * Math.sin(p * Math.PI / 2); } catch { }
+    if (p >= 1) endFade();
+  };
+  F.timer = setInterval(step, 80); step();
+}
+/* ¿cuál es la siguiente? (en aleatorio se decide de antemano para poder precargarla) */
+function peekNext() {
+  const n = P.queue.length; if (!n) return -1;
+  if (P.shuf) {
+    if (P.pre && P.pre.from === P.i && P.pre.q === P.queue) return P.pre.i;
+    const pl = new Set(P.played); pl.add(P.i); if (pl.size >= n) { pl.clear(); pl.add(P.i); }
+    const c = [...Array(n).keys()].filter(k => !pl.has(k)), i = c[Math.floor(Math.random() * c.length)] ?? 0;
+    P.pre = { from: P.i, q: P.queue, i }; return i;
+  }
+  const i = P.i + 1; return i < n ? i : (P.rep ? 0 : -1);
+}
+function maybeFade() {
+  const X = S.xfade || 0; if (!X || P.xf || audio.paused || !P.cur) return;
+  const d = durTime(); if (!d || d < X * 2 + 2 || d - curTime() > X) return;
+  if (peekNext() < 0) return; /* última canción sin repetir: no hay con qué mezclar */
+  next(true, true);
+}
+
+async function play(list, i, keep, xf) {
   const t = list[i]; if (!t) return;
-  if (!keep) { P.played.clear(); P.back = []; }
-  audio.pause(); if (P.url) { URL.revokeObjectURL(P.url); P.url = null; }
+  if (!keep) { P.played.clear(); P.back = []; P.pre = null; }
+  if (!xf) endFade();
+  const tok = ++P.tok, old = audio, b = xf ? other() : audio;
+  if (xf) { P.xf = true; release(b); } else release(audio);
   P.queue = list; P.i = i; P.cur = t;
-  if (t.blob) { P.url = URL.createObjectURL(t.blob); audio.src = P.url; }
-  else if (isVault(t)) {
-    if (!VAULT.key) { toast('Desbloquea primero con la contraseña.'); return; }
-    emit(); /* muestra el título mientras se descarga y descifra */
-    try { const bl = await vaultBlob(t.url); if (P.cur !== t) return; P.url = URL.createObjectURL(bl); audio.src = P.url; }
-    catch (e) { console.error(e); toast('No se pudo descargar o descifrar esta canción.'); return; }
-  } else audio.src = t.url;
+  let url, obj = false;
+  try {
+    if (t.blob) { url = URL.createObjectURL(t.blob); obj = true; }
+    else if (isVault(t)) {
+      if (!VAULT.key) { toast('Desbloquea primero con la contraseña.'); if (xf) P.xf = false; return; }
+      if (!xf) emit(); /* muestra el título mientras se descarga y descifra */
+      const bl = await vaultBlob(t.url); if (tok !== P.tok) return; url = URL.createObjectURL(bl); obj = true;
+    } else url = t.url;
+  } catch (e) { console.error(e); if (tok === P.tok) { P.xf = false; toast('No se pudo descargar o descifrar esta canción.'); } return; }
+  if (obj) b._url = url;
+  if (b.src !== absUrl(url)) b.src = url; else try { b.currentTime = 0; } catch { }
+  b.volume = xf && !old.ended ? 0 : S.vol;
   if (!S.mini.visible) { S.mini.visible = true; save(); applyMini(); }
-  try { await audio.play(); } catch (e) { console.warn(e); }
+  if (xf) { audio = b; startFade(old); }
+  try { await b.play(); } catch (e) { console.warn(e); }
   prefetchNext();
   if ('mediaSession' in navigator) {
-    try { navigator.mediaSession.metadata = new MediaMetadata({ title: t.name, artist: t.artist || '', artwork: t.cover ? [{ src: t.cover }] : [] }); } catch { }
+    try { navigator.mediaSession.metadata = new MediaMetadata({ title: t.name, artist: t.artist || '', album: t.album || '', artwork: t.cover ? [{ src: absUrl(t.cover) }] : [] }); } catch { }
   }
   emit();
 }
 function toggle() {
   if (!P.cur) { const l = viewTracks(S.view === 'web' || S.view === 'set' ? 'lib' : S.view); if (l.length) play(l, 0); else toast('Añade primero algún mp3.'); return; }
-  audio.paused ? audio.play() : audio.pause();
+  if (audio.paused) audio.play(); else { endFade(); audio.pause(); }
 }
-function next(auto) {
+function next(auto, xf) {
   const n = P.queue.length; if (!n) return;
-  let i;
-  if (P.shuf) {
-    P.played.add(P.i); if (P.played.size >= n) { P.played.clear(); P.played.add(P.i); }
-    const c = [...Array(n).keys()].filter(k => !P.played.has(k)); i = c[Math.floor(Math.random() * c.length)] ?? 0;
-  } else { i = P.i + 1; if (i >= n) { if (P.rep || !auto) i = 0; else { audio.pause(); audio.currentTime = 0; emit(); return; } } }
-  P.back.push(P.i); play(P.queue, i, true);
+  let i = peekNext();
+  if (i < 0) { if (!auto) i = 0; else { endFade(); audio.pause(); audio.currentTime = 0; emit(); return; } }
+  if (P.shuf) { P.played.add(P.i); if (P.played.size >= n) { P.played.clear(); P.played.add(P.i); } }
+  P.pre = null; P.back.push(P.i); play(P.queue, i, true, xf);
 }
 function prev() {
   if (!P.queue.length) return;
@@ -229,6 +277,7 @@ if ('mediaSession' in navigator) {
   ms('play', toggle); ms('pause', toggle); ms('previoustrack', prev); ms('nexttrack', () => next());
   ms('seekto', d => { const du = durTime(); if (du) seekTo(d.seekTime / du); });
 }
+subs.add(() => { try { navigator.mediaSession.playbackState = !P.cur ? 'none' : audio.paused ? 'paused' : 'playing'; } catch { } });
 let lastPos = 0;
 tsubs.add(() => { const n = Date.now(); if (n - lastPos < 1000 || !('mediaSession' in navigator)) return; lastPos = n;
   const d = durTime(); if (d) try { navigator.mediaSession.setPositionState({ duration: d, position: Math.min(curTime(), d), playbackRate: 1 }); } catch { } });
@@ -410,8 +459,27 @@ function setOfficial(j) {
     return { url: t.url || (f ? l.folder.replace(/\/+$/, '') + '/' + f : t.file ? 'vault:' + t.file : ''), name: t.title || t.name || n || 'Sin título', artist: t.artist || a,
       album: t.album || l.album || l.name, year: t.year || l.year || '', cover: t.cover || l.cover || '', from: 'Ousify' };
   }).filter(t => t.url) }));
+  OFF.forEach(l => { if (l.coverPerTrack) l.tracks.forEach(t => { const c = S.ocov[t.url]; t.cover = c || (t.url in S.ocov ? l.cover : ''); }); });
   if (OFF.length) render();
-  return resolveCovers();
+  resolveCovers(); trackCovers(); /* las portadas por canción siguen en segundo plano */
+  return Promise.resolve();
+}
+/* Listas con "coverPerTrack": cada canción busca su propia portada (iTunes) una sola vez; se guarda en este dispositivo. */
+let tcBusy = false;
+const clean = s => String(s || '').replace(/[\(\[][^\)\]]*(official|video|lyric|letra|audio|visual|128k|slowed|studio recording)[^\)\]]*[\)\]]/gi, '').replace(/\b(lyrics?|letra|official video)\b/gi, '').replace(/\s+/g, ' ').trim();
+async function trackCovers() {
+  if (tcBusy) return; const todo = OFF.flatMap(l => l.coverPerTrack ? l.tracks : []).filter(t => !(t.url in S.ocov));
+  if (!todo.length) return; tcBusy = true; let n = 0;
+  toast(`Buscando la portada de cada canción de The Creator (${todo.length})… se guarda y solo ocurre una vez.`);
+  for (const t of todo) {
+    try {
+      const art = /^varios/i.test(t.artist) ? '' : t.artist, r = await findCover(clean(t.name), art);
+      S.ocov[t.url] = r ? r.cover : ''; t.cover = r ? r.cover : OFF.find(l => l.tracks.includes(t)).cover;
+    } catch { tcBusy = false; return; } /* sin conexión: se reintenta en la próxima visita */
+    if (++n % 5 === 0) { save(); render(); }
+    await sleep(3200);
+  }
+  save(); render(); tcBusy = false; toast('Portadas de The Creator listas.');
 }
 /* Comprueba que cada portada carga. Si la ruta falla, la busca en la misma carpeta y en "imagenes/" (jpg, jpeg, png, webp). */
 const imgOk = u => new Promise(r => { const i = new Image(); i.onload = () => r(true); i.onerror = () => r(false); i.src = absUrl(u); });
@@ -458,8 +526,10 @@ function vaultBlob(url) {
   return VC.get(url);
 }
 function prefetchNext() {
-  const n = P.queue.length; if (!n || P.shuf || !VAULT.key) return;
-  const t = P.queue[(P.i + 1) % n]; if (isVault(t) && !t.blob) vaultBlob(t.url).catch(() => { });
+  const i = peekNext(), t = i >= 0 && P.queue[i]; if (!t) return;
+  if (isVault(t)) { if (VAULT.key && !t.blob) vaultBlob(t.url).catch(() => { }); return; }
+  const idle = other(); /* mp3 normales: se van cargando en el reproductor libre */
+  if (!t.blob && !P.xf && idle.paused && idle.src !== absUrl(t.url)) { idle.src = t.url; idle.preload = 'auto'; }
 }
 async function openVault(key) {
   VAULT.key = key;
@@ -554,7 +624,7 @@ main.onclick = async e => {
     catch { toast('Este servidor no permite descargar el mp3.'); } bt.style.opacity = ''; return;
   }
   if (bt && bt.dataset.rm != null) {
-    if (V.ctx === 'lib') { if (!confirm(`¿Borrar “${t.name}” de la biblioteca?`)) return; await delTrack(t.id); S.lists.forEach(l => l.ids = l.ids.filter(id => id !== t.id)); save(); if (P.cur && P.cur.id === t.id) { audio.pause(); P.cur = null; } await refreshLib(); }
+    if (V.ctx === 'lib') { if (!confirm(`¿Borrar “${t.name}” de la biblioteca?`)) return; await delTrack(t.id); S.lists.forEach(l => l.ids = l.ids.filter(id => id !== t.id)); save(); if (P.cur && P.cur.id === t.id) { endFade(); audio.pause(); P.cur = null; } await refreshLib(); }
     else { const l = listBy(S.view); l.ids = l.ids.filter(id => id !== t.id); save(); emit(true); }
     return;
   }
@@ -583,6 +653,7 @@ function renderSettings() {
     <label>Mostrar portada <input type="checkbox" data-c="cover"></label>
     <label>Fondo difuminado con la portada <input type="checkbox" data-c="blur"></label>
     <label>Buscar portadas solas al importar <input type="checkbox" data-t="autoCover"></label>
+    <div class="fld">Mezclar canciones (fundido) <select data-xf><option value="0">Desactivado</option><option value="2">2 segundos</option><option value="4">4 segundos</option><option value="5">5 segundos</option><option value="8">8 segundos</option><option value="12">12 segundos</option></select></div>
     <div class="fld">Nombre de los mp3 que importes <select data-fn><option value="ta">Título - Artista</option><option value="at">Artista - Título</option></select></div>
     <div class="fld">Tamaño <span class="cols"><button class="btn sz" data-sz="-1">−</button><input type="range" min=".7" max="1.8" step=".05" data-c="scale"><button class="btn sz" data-sz="1">+</button></span></div>
     <div class="fld">Formato <select data-c="mode"><option value="full">Completo</option><option value="compact">Compacto</option><option value="dot">Solo botón</option></select></div>
@@ -597,8 +668,9 @@ function renderSettings() {
     <div class="fld">Jamendo client_id (opcional) <input type="text" data-k="jamendo" placeholder="client_id" value="${esc(S.keys.jamendo)}"></div>
     <small>Con el client_id gratuito de developer.jamendo.com la búsqueda incluye Jamendo (mp3 descargables).</small></div>`;
   const fill = () => $$('[data-c]', main).forEach(i => { const v = c[i.dataset.c]; if (i.type === 'checkbox') i.checked = v; else i.value = v; });
-  fill(); $('[data-fn]', main).value = S.fname || 'ta'; $('[data-t=autoCover]', main).checked = S.autoCover !== false;
+  fill(); $('[data-xf]', main).value = String(S.xfade ?? 5); $('[data-fn]', main).value = S.fname || 'ta'; $('[data-t=autoCover]', main).checked = S.autoCover !== false;
   main.oninput = e => {
+    if (e.target.dataset.xf != null) { S.xfade = +e.target.value; save(); return; }
     if (e.target.dataset.t) { S[e.target.dataset.t] = e.target.checked; save(); return; }
     if (e.target.dataset.k) { S.keys[e.target.dataset.k] = e.target.value.trim(); save(); return; }
     const k = e.target.dataset.c; if (!k) { if (e.target.dataset.f != null) { V.filter = e.target.value; paintRows(); } return; }
@@ -715,9 +787,11 @@ document.addEventListener('drop', async e => { if (e.dataTransfer.files.length) 
 let audioUnlocked = false;
 function unlockAudio() {
   if (audioUnlocked) return; audioUnlocked = true;
-  if (P.cur || audio.src) return;
-  audio.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=';
-  audio.play().then(() => { if (!P.cur) audio.pause(); }).catch(() => { });
+  AUD.forEach(a => { /* se desbloquean los dos reproductores */
+    if (a.src) return;
+    a.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=';
+    a.play().then(() => { if (!P.cur || a !== audio) a.pause(); }).catch(() => { });
+  });
 }
 ['pointerdown', 'touchend', 'keydown'].forEach(ev => addEventListener(ev, unlockAudio, { once: true, passive: true }));
 addEventListener('keydown', e => { if (e.code === 'Space' && !e.target.closest('input,textarea,select,button')) { e.preventDefault(); toggle(); } });

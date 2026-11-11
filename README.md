@@ -58,3 +58,8 @@ Límites que conviene saber: la contraseña es compartida (no se puede expulsar 
 - Atajo por carpeta: una lista con `"folder": "vault-src/The Creator"` admite pistas escritas como `{ "file": "Título - Artista.mp3" }`; título y artista salen del nombre del archivo, y álbum y portada se heredan de la lista.
 - Álbum «The Creator»: portada `imagenes/the-creator.jpg`, carpeta `vault-src/The Creator/` (ver su LEEME.txt).
 - Al abrir la web sale una pantalla de entrada (logo grande, «Ousify» y barra de carga) mientras carga todo.
+
+## Mezcla entre canciones y móvil con pantalla apagada
+- Los últimos segundos de una canción se mezclan con los primeros de la siguiente (fundido cruzado). Se elige en Ajustes → «Mezclar canciones» (por defecto 5 s; «Desactivado» para quitarlo). En iPhone el sistema no deja cambiar el volumen por código, así que allí las dos suenan a la vez sin fundido.
+- Hay dos reproductores que se alternan y la siguiente canción se precarga, de modo que el sonido nunca se corta entre pistas: así el móvil con la pantalla apagada sigue avanzando de canción.
+- En listas con `"coverPerTrack": true` (The Creator), cada canción busca su propia portada una sola vez (se guarda en el dispositivo); si no la encuentra usa la del álbum.

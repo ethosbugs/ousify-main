@@ -4,14 +4,14 @@
       "id": "un-verano-sin-ti",
       "name": "Un Verano Sin Ti",
       "description": "Álbum Un Verano Sin Ti - Bad Bunny",
-      "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+      "cover": "imagenes/un-verano-sin-ti.jpg",
       "tracks": [
         {
           "title": "Agosto",
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Agosto - Bad Bunny.mp3"
         },
         {
@@ -19,7 +19,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Aguacero - Bad Bunny.mp3"
         },
         {
@@ -27,7 +27,7 @@
           "artist": "Bad Bunny & Buscabulla",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Andrea - Bad Bunny.mp3"
         },
         {
@@ -35,7 +35,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Callaita - Bad Bunny.mp3"
         },
         {
@@ -43,7 +43,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Después de la Playa - Bad Bunny.mp3"
         },
         {
@@ -51,7 +51,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Dos Mil 16 - Bad Bunny.mp3"
         },
         {
@@ -59,7 +59,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Efecto - Bad Bunny.mp3"
         },
         {
@@ -67,7 +67,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/El Apagón - Bad Bunny.mp3"
         },
         {
@@ -75,7 +75,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Enséñame a Bailar - Bad Bunny.mp3"
         },
         {
@@ -83,7 +83,7 @@
           "artist": "Bad Bunny & Tony Dize",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/La Corriente - Bad Bunny.mp3"
         },
         {
@@ -91,7 +91,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Me Fui de Vacaciones - Bad Bunny.mp3"
         },
         {
@@ -99,7 +99,7 @@
           "artist": "Bad Bunny & Chencho Corleone",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Me Porto Bonito - Bad Bunny.mp3"
         },
         {
@@ -107,7 +107,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Moscow Mule - Bad Bunny.mp3"
         },
         {
@@ -115,7 +115,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Neverita - Bad Bunny.mp3"
         },
         {
@@ -123,7 +123,7 @@
           "artist": "Bad Bunny & Bomba Estéreo",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Ojitos Lindos - Bad Bunny.mp3"
         },
         {
@@ -131,7 +131,7 @@
           "artist": "Bad Bunny & The Marías",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Otro Atardecer - Bad Bunny.mp3"
         },
         {
@@ -139,7 +139,7 @@
           "artist": "Bad Bunny & Rauw Alejandro",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Party - Bad Bunny.mp3"
         },
         {
@@ -147,7 +147,7 @@
           "artist": "Bad Bunny & Jhayco",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Tarot - Bad Bunny.mp3"
         },
         {
@@ -155,7 +155,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Tití Me Preguntó - Bad Bunny.mp3"
         },
         {
@@ -163,7 +163,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Un Coco - Bad Bunny.mp3"
         },
         {
@@ -171,7 +171,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Un Ratito - Bad Bunny.mp3"
         },
         {
@@ -179,7 +179,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Un Verano Sin Ti - Bad Bunny.mp3"
         },
         {
@@ -187,7 +187,7 @@
           "artist": "Bad Bunny",
           "album": "Un Verano Sin Ti",
           "year": "2022",
-          "cover": "vault-src/Un Verano Sin Ti/un-verano-sin-ti.jpg",
+          "cover": "imagenes/un-verano-sin-ti.jpg",
           "url": "vault-src/Un Verano Sin Ti/Yo No Soy Celoso - Bad Bunny.mp3"
         }
       ]
@@ -196,14 +196,14 @@
       "id": "el-baifo",
       "name": "El Baifo",
       "description": "Álbum El Baifo - Quevedo",
-      "cover": "vault-src/El Baifo/el-baifo.jpg",
+      "cover": "imagenes/el-baifo.jpg",
       "tracks": [
         {
           "title": "2010YPICO",
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/2010YPICO - Quevedo.mp3"
         },
         {
@@ -211,7 +211,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/AL GOLPITO - Quevedo.mp3"
         },
         {
@@ -219,7 +219,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/ALGO VA A PASAR - Quevedo.mp3"
         },
         {
@@ -227,7 +227,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/CAPRICHOSO - Quevedo.mp3"
         },
         {
@@ -235,7 +235,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/EL BAIFO - Quevedo.mp3"
         },
         {
@@ -243,7 +243,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/ESTÁ EN CASA - Quevedo.mp3"
         },
         {
@@ -251,7 +251,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/FLAKITO - Quevedo.mp3"
         },
         {
@@ -259,7 +259,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/GÁLDAR - Quevedo.mp3"
         },
         {
@@ -267,7 +267,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/HIJO DE VOLCÁN - Quevedo.mp3"
         },
         {
@@ -275,7 +275,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/HOOKAH Y CALOR - Quevedo.mp3"
         },
         {
@@ -283,7 +283,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/LA GRACIOSA - Quevedo.mp3"
         },
         {
@@ -291,7 +291,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/MI BALCÓN - Quevedo.mp3"
         },
         {
@@ -299,7 +299,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/NI BORRACHO - Quevedo.mp3"
         },
         {
@@ -307,7 +307,7 @@
           "artist": "Quevedo",
           "album": "El Baifo",
           "year": "2024",
-          "cover": "vault-src/El Baifo/el-baifo.jpg",
+          "cover": "imagenes/el-baifo.jpg",
           "url": "vault-src/El Baifo/SCANDIC - Quevedo.mp3"
         }
       ]
@@ -316,22 +316,22 @@
       "id": "the-creator",
       "name": "The Creator",
       "description": "Playlist completa - The Creator",
-      "cover": "vault-src/The Creator/the-creator.jpg",
+      "cover": "imagenes/the-creator.jpg",
       "tracks": [
         {
           "title": "3 PECADOS DESPUES.",
-          "artist": "3 PECADOS DESPUES.",
+          "artist": "",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/3 PECADOS DESPUES..mp3"
         },
         {
           "title": "a good man with a broken heart",
-          "artist": "LoVibe..mp3",
+          "artist": "LoVibe.",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/a good man with a broken heart - LoVibe..mp3"
         },
         {
@@ -339,7 +339,7 @@
           "artist": "Engelbert Humperdinck",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/A Man Without Love - Engelbert Humperdinck.mp3"
         },
         {
@@ -347,7 +347,7 @@
           "artist": "AaronSmithVEVO",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Aaron Smith - Dancin - Krono Remix (Official Video) ft. Luvli - AaronSmithVEVO.mp3"
         },
         {
@@ -355,7 +355,7 @@
           "artist": "Chris Jedi",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Ahora Dice - Chris Jedi.mp3"
         },
         {
@@ -363,7 +363,7 @@
           "artist": "Lucho RK",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/AIRE - Lucho RK.mp3"
         },
         {
@@ -371,7 +371,7 @@
           "artist": "Anuel AA",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Amanece - Anuel AA.mp3"
         },
         {
@@ -379,7 +379,7 @@
           "artist": "Varios Artistas",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Animals.mp3"
         },
         {
@@ -387,7 +387,7 @@
           "artist": "Metro Boomin",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Annihilate (Spider-Man Across the Spider-Verse) - Metro Boomin.mp3"
         },
         {
@@ -395,15 +395,15 @@
           "artist": "La Roux",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Automatic Driver (Tyler, The Creator Remix) - La Roux.mp3"
         },
         {
           "title": "Back In Black",
-          "artist": "AC_DC",
+          "artist": "AC/DC",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Back In Black - AC_DC.mp3"
         },
         {
@@ -411,7 +411,7 @@
           "artist": "Michael Jackson",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Bad - Michael Jackson.mp3"
         },
         {
@@ -419,7 +419,7 @@
           "artist": "iPerol",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Bad Bunny - DtMF (Letra) - iPerol.mp3"
         },
         {
@@ -427,7 +427,7 @@
           "artist": "Michael Jackson",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Beat It - Michael Jackson.mp3"
         },
         {
@@ -435,7 +435,7 @@
           "artist": "El De Las R's",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Beretta (De Los Cerros La Escuela) - El De Las R's.mp3"
         },
         {
@@ -443,7 +443,7 @@
           "artist": "Michael Jackson",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Billie Jean - Michael Jackson.mp3"
         },
         {
@@ -451,7 +451,7 @@
           "artist": "LyRick's",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/blu - RickyEdit  Lyrics - LyRick's.mp3"
         },
         {
@@ -459,7 +459,7 @@
           "artist": "Maluma",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Borro Cassette - Maluma.mp3"
         },
         {
@@ -467,7 +467,7 @@
           "artist": "Macklemore",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Can't Hold Us (feat. Ray Dalton) - Macklemore.mp3"
         },
         {
@@ -475,7 +475,7 @@
           "artist": "Kanye West",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Can't Tell Me Nothing - Kanye West.mp3"
         },
         {
@@ -483,7 +483,7 @@
           "artist": "Ozuna",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Caramelo (Remix) - Ozuna.mp3"
         },
         {
@@ -491,7 +491,7 @@
           "artist": "Myke Towers",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/CARITA FELIZ - Myke Towers.mp3"
         },
         {
@@ -499,7 +499,7 @@
           "artist": "Anuel AA",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/China - Anuel AA.mp3"
         },
         {
@@ -507,7 +507,7 @@
           "artist": "Gsus lz",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/COLAPINTO - Gsus lz.mp3"
         },
         {
@@ -515,7 +515,7 @@
           "artist": "Quevedo",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Columbia - Quevedo.mp3"
         },
         {
@@ -523,7 +523,7 @@
           "artist": "Redbone",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Come and Get Your Love (Single Version) - Redbone.mp3"
         },
         {
@@ -531,7 +531,7 @@
           "artist": "Estopa",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Como Camarón - Estopa.mp3"
         },
         {
@@ -539,15 +539,15 @@
           "artist": "Lucho RK",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/CONTIGO - Lucho RK.mp3"
         },
         {
           "title": "Corazón",
-          "artist": "Maluma (1).mp3",
+          "artist": "Maluma (1)",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Corazón - Maluma (1).mp3"
         },
         {
@@ -555,15 +555,15 @@
           "artist": "Dalex",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Dalex - Hola Remix ft. Lenny Tavárez, Chencho Corleone, Juhn El All Star (Video Lírico Oficial) - Dalex.mp3"
         },
         {
           "title": "DaME las SuBs - Pereira x La Pantera x Lucho",
-          "artist": "Peereira7.mp3",
+          "artist": "Peereira7",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/DaME las SuBs - Pereira x La Pantera x Lucho - Peereira7.mp3"
         },
         {
@@ -571,7 +571,7 @@
           "artist": "Ozuna",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Dile Que Tu Me Quieres - Ozuna.mp3"
         },
         {
@@ -579,7 +579,7 @@
           "artist": "Ozuna",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Diles - Ozuna.mp3"
         },
         {
@@ -587,7 +587,7 @@
           "artist": "Michael Jackson",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Don't Stop 'Til You Get Enough - Michael Jackson.mp3"
         },
         {
@@ -595,15 +595,15 @@
           "artist": "Bad Bunny",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Dos Mil 16 - Bad Bunny.mp3"
         },
         {
           "title": "Drake - One Dance (Lyrics) ft. Wizkid & Kyla",
-          "artist": "Billion Stars.mp3",
+          "artist": "Billion Stars",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Drake - One Dance (Lyrics) ft. Wizkid & Kyla - Billion Stars.mp3"
         },
         {
@@ -611,7 +611,7 @@
           "artist": "Bad Bunny",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/DÁKITI - Bad Bunny.mp3"
         },
         {
@@ -619,7 +619,7 @@
           "artist": "Ozuna",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/El Farsante - Ozuna.mp3"
         },
         {
@@ -627,7 +627,7 @@
           "artist": "Maluma",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/El Préstamo - Maluma.mp3"
         },
         {
@@ -635,7 +635,7 @@
           "artist": "Survivor",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Eye of the Tiger - Survivor.mp3"
         },
         {
@@ -643,7 +643,7 @@
           "artist": "Gorillaz",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Feel Good Inc. - Gorillaz.mp3"
         },
         {
@@ -651,15 +651,15 @@
           "artist": "NEFFEX",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Fight Back - NEFFEX.mp3"
         },
         {
           "title": "Fórmula Secreta-RickyEdit (Lyrcs)",
-          "artist": "Geryyy.mp3",
+          "artist": "Geryyy",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Fórmula Secreta-RickyEdit (Lyrcs) - Geryyy.mp3"
         },
         {
@@ -667,7 +667,7 @@
           "artist": "Drake",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/God's Plan - Drake.mp3"
         },
         {
@@ -675,7 +675,7 @@
           "artist": "Travis Scott",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/goosebumps - Travis Scott.mp3"
         },
         {
@@ -683,15 +683,15 @@
           "artist": "Nicky Jam",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Hasta el Amanecer - Nicky Jam.mp3"
         },
         {
           "title": "hoa",
-          "artist": "rickyedit.mp3",
+          "artist": "rickyedit",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/hoa - rickyedit.mp3"
         },
         {
@@ -699,7 +699,7 @@
           "artist": "Dalex",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Hola (Remix) - Dalex.mp3"
         },
         {
@@ -707,7 +707,7 @@
           "artist": "Jhayco",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Holanda - Jhayco.mp3"
         },
         {
@@ -715,7 +715,7 @@
           "artist": "Myke Towers",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/HORA CERO - Myke Towers.mp3"
         },
         {
@@ -723,15 +723,15 @@
           "artist": "The Weeknd",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/I Feel It Coming - The Weeknd.mp3"
         },
         {
           "title": "I Will Survive - Alien Song",
-          "artist": "nikki7993.mp3",
+          "artist": "nikki7993",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/I Will Survive - Alien Song - nikki7993.mp3"
         },
         {
@@ -739,15 +739,15 @@
           "artist": "Varios Artistas",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Im Still Standing.mp3"
         },
         {
           "title": "Kavkaz",
-          "artist": "starly.mp3",
+          "artist": "starly",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Kavkaz - starly.mp3"
         },
         {
@@ -755,7 +755,7 @@
           "artist": "Daddy Yankee",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/La Despedida - Daddy Yankee.mp3"
         },
         {
@@ -763,7 +763,7 @@
           "artist": "Quevedo",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/LA GRACIOSA - Quevedo.mp3"
         },
         {
@@ -771,7 +771,7 @@
           "artist": "Myke Towers",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/La Playa - Myke Towers.mp3"
         },
         {
@@ -779,7 +779,7 @@
           "artist": "Daddy Yankee",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Limbo - Daddy Yankee.mp3"
         },
         {
@@ -787,7 +787,7 @@
           "artist": "Tame Impala",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Loser - Tame Impala.mp3"
         },
         {
@@ -795,7 +795,7 @@
           "artist": "John Newman",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Love Me Again (Radio Edit) - John Newman.mp3"
         },
         {
@@ -803,23 +803,23 @@
           "artist": "Ravyn Lenae",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Love Me Not (feat. Rex Orange County) - Ravyn Lenae.mp3"
         },
         {
           "title": "Marco Polo - JZTA",
-          "artist": "JZTA.mp3",
+          "artist": "JZTA",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Marco Polo - JZTA - JZTA.mp3"
         },
         {
           "title": "MARIO",
-          "artist": "Blamian.mp3",
+          "artist": "Blamian",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/MARIO - Blamian.mp3"
         },
         {
@@ -827,7 +827,7 @@
           "artist": "Reik",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Me Niego - Reik.mp3"
         },
         {
@@ -835,7 +835,7 @@
           "artist": "Danny Ocean",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Me Rehúso - Danny Ocean.mp3"
         },
         {
@@ -843,7 +843,7 @@
           "artist": "Varios Artistas",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Mi Gente.mp3"
         },
         {
@@ -851,7 +851,7 @@
           "artist": "Bad Bunny",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/MIA - Bad Bunny.mp3"
         },
         {
@@ -859,7 +859,7 @@
           "artist": "Eminem",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Mockingbird - Eminem.mp3"
         },
         {
@@ -867,7 +867,7 @@
           "artist": "Bad Bunny",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/MONACO - Bad Bunny.mp3"
         },
         {
@@ -875,7 +875,7 @@
           "artist": "24kGoldn",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Mood - 24kGoldn.mp3"
         },
         {
@@ -883,7 +883,7 @@
           "artist": "XXXTENTACION",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Moonlight - XXXTENTACION.mp3"
         },
         {
@@ -891,7 +891,7 @@
           "artist": "Bad Bunny",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Moscow Mule - Bad Bunny.mp3"
         },
         {
@@ -899,15 +899,15 @@
           "artist": "Varios Artistas",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Moves Like Jagger Studio Recording From The Voice Performance.mp3"
         },
         {
           "title": "MUCHACHA",
-          "artist": "Aissa.mp3",
+          "artist": "Aissa",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/MUCHACHA - Aissa.mp3"
         },
         {
@@ -915,7 +915,7 @@
           "artist": "Frank Sinatra",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/My Way - Frank Sinatra.mp3"
         },
         {
@@ -923,31 +923,23 @@
           "artist": "Bizarrap",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Myke Towers Bzrp Music Sessions, Vol. 42_66 - Bizarrap.mp3"
-        },
-        {
-          "title": "No confirmat 274149",
-          "artist": "crdownload",
-          "album": "The Creator",
-          "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
-          "url": "vault-src/The Creator/No confirmat 274149.crdownload"
         },
         {
           "title": "No Quiere Enamorarse",
           "artist": "Ozuna",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/No Quiere Enamorarse - Ozuna.mp3"
         },
         {
           "title": "NOW OR NEVER - Slowed",
-          "artist": "Tkandz.mp3",
+          "artist": "Tkandz",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/NOW OR NEVER - Slowed - Tkandz.mp3"
         },
         {
@@ -955,15 +947,15 @@
           "artist": "Bad Bunny",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/NUEVAYoL - Bad Bunny.mp3"
         },
         {
           "title": "nuts",
-          "artist": "Lil Peep.mp3",
+          "artist": "Lil Peep",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/nuts - Lil Peep.mp3"
         },
         {
@@ -971,15 +963,15 @@
           "artist": "Lil Nas X",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Old Town Road - Lil Nas X.mp3"
         },
         {
           "title": "Once y Once",
-          "artist": "Dei V.mp3",
+          "artist": "Dei V",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Once y Once - Dei V.mp3"
         },
         {
@@ -987,23 +979,23 @@
           "artist": "Maroon 5",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Payphone - Maroon 5.mp3"
         },
         {
           "title": "Plan B - Es Un Secreto [Official Video]",
-          "artist": "Pina Records.mp3",
+          "artist": "Pina Records",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Plan B - Es Un Secreto [Official Video] - Pina Records.mp3"
         },
         {
           "title": "quelamamen - rickyedit",
-          "artist": "rickyedit.mp3",
+          "artist": "rickyedit",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/quelamamen - rickyedit - rickyedit.mp3"
         },
         {
@@ -1011,7 +1003,7 @@
           "artist": "Bizarrap",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Quevedo Bzrp Music Sessions, Vol. 52_66 - Bizarrap.mp3"
         },
         {
@@ -1019,7 +1011,7 @@
           "artist": "Gsus lz",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/QUÉDIRÁN - Gsus lz.mp3"
         },
         {
@@ -1027,7 +1019,7 @@
           "artist": "Lil Tecca",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Ransom (Remix) - Lil Tecca.mp3"
         },
         {
@@ -1035,15 +1027,15 @@
           "artist": "Lil Tecca",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Ransom - Lil Tecca.mp3"
         },
         {
           "title": "Rara Vez",
-          "artist": "Milo j.mp3",
+          "artist": "Milo j",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Rara Vez - Milo j.mp3"
         },
         {
@@ -1051,7 +1043,7 @@
           "artist": "Lucho RK",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/RESACA EMOCIONAL - Lucho RK.mp3"
         },
         {
@@ -1059,15 +1051,15 @@
           "artist": "Lucho RK",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/RETRICA - Lucho RK.mp3"
         },
         {
           "title": "Rickyedit - El otro era yo (video concept)",
-          "artist": "ApolŤs.mp3",
+          "artist": "ApolŤs",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Rickyedit - El otro era yo (video concept) - ApolŤs.mp3"
         },
         {
@@ -1075,7 +1067,7 @@
           "artist": "Lucho RK",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/RIGHT NOW - Lucho RK.mp3"
         },
         {
@@ -1083,7 +1075,7 @@
           "artist": "Arizona Zervas",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/ROXANNE - Arizona Zervas.mp3"
         },
         {
@@ -1091,7 +1083,7 @@
           "artist": "Lil Wayne",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Scared of the Dark - Lil Wayne.mp3"
         },
         {
@@ -1099,31 +1091,31 @@
           "artist": "Sech",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Sech - Otro Trago (Remix) ft. Darell, Nicky Jam, Ozuna, Anuel AA (Audio Oficial) - Sech.mp3"
         },
         {
           "title": "See You Again",
-          "artist": "Tyler, The Creator.mp3",
+          "artist": "Tyler, The Creator",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/See You Again - Tyler, The Creator.mp3"
         },
         {
           "title": "Self Aware",
-          "artist": "Temper City.mp3",
+          "artist": "Temper City",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Self Aware - Temper City.mp3"
         },
         {
           "title": "SHARINGAN - La Pantera (128k)",
-          "artist": "mp3",
+          "artist": "",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/SHARINGAN - La Pantera (128k).mp3"
         },
         {
@@ -1131,7 +1123,7 @@
           "artist": "Travis Scott",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/SICKO MODE - Travis Scott.mp3"
         },
         {
@@ -1139,7 +1131,7 @@
           "artist": "Michael Jackson",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Smooth Criminal - Michael Jackson.mp3"
         },
         {
@@ -1147,23 +1139,23 @@
           "artist": "Wiz Khalifa",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Snoop Dogg & Wiz Khalifa - Young, Wild and Free ft. Bruno Mars [Official Video] - Wiz Khalifa.mp3"
         },
         {
           "title": "Somebody's Watching Me",
-          "artist": "Rockwell.mp3",
+          "artist": "Rockwell",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Somebody's Watching Me - Rockwell.mp3"
         },
         {
           "title": "Sometimes",
-          "artist": "Mattyeux.mp3",
+          "artist": "Mattyeux",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Sometimes - Mattyeux.mp3"
         },
         {
@@ -1171,7 +1163,7 @@
           "artist": "Lucho RK",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/SORDO DE UN PIE (interludio) - Lucho RK.mp3"
         },
         {
@@ -1179,15 +1171,15 @@
           "artist": "The Weeknd",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Starboy - The Weeknd.mp3"
         },
         {
           "title": "STAY",
-          "artist": "The Kid LAROI.mp3",
+          "artist": "The Kid LAROI",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/STAY - The Kid LAROI.mp3"
         },
         {
@@ -1195,15 +1187,15 @@
           "artist": "Post Malone",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Sunflower (Spider-Man Into the Spider-Verse) - Post Malone.mp3"
         },
         {
           "title": "Sunflower Spider-Man Into the Spider-Verse",
-          "artist": "mp3",
+          "artist": "",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Sunflower Spider-Man Into the Spider-Verse.mp3"
         },
         {
@@ -1211,7 +1203,7 @@
           "artist": "Roddy Ricch",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/The Box - Roddy Ricch.mp3"
         },
         {
@@ -1219,23 +1211,23 @@
           "artist": "Bruno Mars",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/The Lazy Song - Bruno Mars.mp3"
         },
         {
           "title": "The Winner Is",
-          "artist": "DeVotchKa.mp3",
+          "artist": "DeVotchKa",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/The Winner Is - DeVotchKa.mp3"
         },
         {
           "title": "The Winner Takes It All",
-          "artist": "ABBA.mp3",
+          "artist": "ABBA",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/The Winner Takes It All - ABBA.mp3"
         },
         {
@@ -1243,7 +1235,7 @@
           "artist": "Shawn Mendes",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/There's Nothing Holdin' Me Back - Shawn Mendes.mp3"
         },
         {
@@ -1251,7 +1243,7 @@
           "artist": "Shawn Mendes",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Treat You Better - Shawn Mendes.mp3"
         },
         {
@@ -1259,7 +1251,7 @@
           "artist": "Varios Artistas",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Tumbao.mp3"
         },
         {
@@ -1267,7 +1259,7 @@
           "artist": "Ozuna",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Tú Foto - Ozuna.mp3"
         },
         {
@@ -1275,15 +1267,15 @@
           "artist": "Mark Ronson",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Uptown Funk - Mark Ronson.mp3"
         },
         {
           "title": "Vehemencia",
-          "artist": "DeFai.mp3",
+          "artist": "DeFai",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Vehemencia - DeFai.mp3"
         },
         {
@@ -1291,7 +1283,7 @@
           "artist": "Ozuna",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Vocation - Ozuna.mp3"
         },
         {
@@ -1299,7 +1291,7 @@
           "artist": "Drake",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/What Did I Miss - Drake.mp3"
         },
         {
@@ -1307,7 +1299,7 @@
           "artist": "Oasis",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Wonderwall (Unplugged) - Oasis.mp3"
         },
         {
@@ -1315,7 +1307,7 @@
           "artist": "Bad Bunny",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/Yonaguni - Bad Bunny.mp3"
         },
         {
@@ -1323,10 +1315,11 @@
           "artist": "Ozuna",
           "album": "The Creator",
           "year": "2026",
-          "cover": "vault-src/The Creator/the-creator.jpg",
+          "cover": "imagenes/the-creator.jpg",
           "url": "vault-src/The Creator/ZIZI - Ozuna.mp3"
         }
-      ]
+      ],
+      "coverPerTrack": true
     }
   ]
 }
